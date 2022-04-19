@@ -58,7 +58,7 @@ export default function ProductCard() {
           <Typography>per piece</Typography>
           <Box sx={{ display: "flex", flexDirection: "row" }}>
             <Typography variant="subtitle1" component="div">
-              <b>₹90 </b>
+              <b>₹80 </b>
               {
                 <span
                   style={{ textDecoration: "line-through", color: "#808080" }}
