@@ -1,16 +1,16 @@
 import React from "react";
 import "./App.css";
-import { Box } from "@mui/material";
-import Header from "./components/Header/Header";
-import HomePage from "./pages/homepage/HomePage";
+
+// setting up redux
+import { Provider } from "react-redux";
+import store from "./store/rootReducer";
+import Main from "./pages/Main";
 
 function App() {
   return (
-    <div>
-      <Header />
-      <Box sx={{ flexGrow: 1, height: 75 }} />
-      <HomePage />
-    </div>
+    <Provider store={store}>
+      <Main />
+    </Provider>
   );
 }
 
