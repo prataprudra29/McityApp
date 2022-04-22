@@ -7,8 +7,7 @@ import HomePage from "./pages/homepage/HomePage";
 function App() {
   return (
     <div>
-      <Header />
-      <Box sx={{ flexGrow: 1, height: 75 }} />
+      <Header /> 
       <HomePage />
     </div>
   );

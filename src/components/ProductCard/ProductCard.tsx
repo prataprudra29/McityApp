@@ -1,76 +1,71 @@
-import * as React from "react";
-import { useTheme } from "@mui/material/styles";
-import Box from "@mui/material/Box";
-import Card from "@mui/material/Card";
-import CardContent from "@mui/material/CardContent";
-import CardMedia from "@mui/material/CardMedia";
-import Typography from "@mui/material/Typography";
-import { Button } from "@mui/material";
-
 export default function ProductCard() {
-  const theme = useTheme();
 
   return (
-    <Card sx={{ display: "flex", marginBottom: 2 }}>
-      <Box
-        sx={{
-          display: "flex",
-          flexDirection: "row",
-          margin: 1,
-          fontFamily: "sans-serif",
-        }}
-      >
-        <Box
-          sx={{
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-            justifyContent: "center",
-          }}
-        >
-          <CardMedia
-            component="img"
-            sx={{ width: 100, height: 100 }}
-            image="https://cdn3.mydukaan.io/app/image/700x700/?url=https://dukaan-us.s3.amazonaws.com/4976955/073ffe51-1d3d-463d-9351-2a6d3a81d4ae/1642520809791-13ecb0a2-b8e2-40a5-8f78-972ddf6e500e.jpeg"
-            alt="Apex"
-          />
-          <Typography
-            style={{
-              backgroundColor: "#ee741f",
-              color: "white",
-              width: 60,
-              height: 20,
-              display: "flex",
-              fontSize: 12,
-              marginTop: -10,
-            }}
-          >
-            70% OFF
-          </Typography>
-        </Box>
-        <CardContent sx={{ flex: "1 0 auto" }}>
-          <Typography
-            component="div"
-            style={{ fontSize: 17, fontWeight: "550" }}
-          >
-            Powder Blender
-          </Typography>
-          <Typography>per piece</Typography>
-          <Box sx={{ display: "flex", flexDirection: "row" }}>
-            <Typography variant="subtitle1" component="div">
-              <b>₹80 </b>
-              {
-                <span
-                  style={{ textDecoration: "line-through", color: "#808080" }}
-                >
-                  ₹300
-                </span>
-              }
-            </Typography>
-          </Box>
-        </CardContent>
-      </Box>
-      <Button style={{ marginLeft: "auto" }}>Add</Button>
-    </Card>
+    <div className="productContainer">
+      <div className="list">
+        <div className="heading">Apex <span>1</span></div>
+        <ul className="m-0 p-0 productList">
+          {
+            [1, 2, 3].map(res => (
+              <li className="d-flex justify-content-between">
+                <div className="productarea">
+                  <div className="productImg">
+                    <img src="https://cdn3.mydukaan.io/app/image/700x700/?url=https://dukaan-us.s3.amazonaws.com/4976955/073ffe51-1d3d-463d-9351-2a6d3a81d4ae/1642520809791-13ecb0a2-b8e2-40a5-8f78-972ddf6e500e.jpeg" alt="" />
+                    <div className="offerArea">
+                      70% OFF
+                    </div>
+                  </div>
+                  <div className="productText">
+                    <div className="productName fz18 py-1">Power Blender</div>
+                    <div className="text-dark fz12 py-1">Per Piece</div>
+                    <div className="text-dark py-1 fz20">₹90 <span className="notPrice lightColor fz14 ml-2">₹300</span></div>
+
+                  </div>
+                </div>
+                <div className="itemarea">
+                  <div className="productAdd">
+                    <div className="countProduct">
+                      <span className="countIcon"><i className="fa fa-minus"></i></span>
+                      <span className="count">1</span>
+                      <span className="countIcon"><i className="fa fa-plus"></i></span>
+                    </div>
+                  </div>
+                </div>
+              </li>
+            ))
+          }
+        </ul>
+
+
+        <div className="heading">Dekau <span>1</span></div>
+        <ul className="m-0 p-0 productList">
+          {
+            [1, 2, 2, 4, 4, 5, 6, 7].map(res => (
+              <li className="d-flex justify-content-between">
+                <div className="productarea">
+                  <div className="productImg">
+                    <img src="https://cdn3.mydukaan.io/app/image/700x700/?url=https://dukaan-us.s3.amazonaws.com/4976955/073ffe51-1d3d-463d-9351-2a6d3a81d4ae/1642520809791-13ecb0a2-b8e2-40a5-8f78-972ddf6e500e.jpeg" alt="" />
+                    <div className="offerArea">
+                      70% OFF
+                    </div>
+                  </div>
+                  <div className="productText">
+                    <div className="productName fz18 py-1">Power Blender</div>
+                    <div className="text-dark fz12 py-1">Per Piece</div>
+                    <div className="text-dark py-1 fz20">₹90 <span className="notPrice lightColor fz14 ml-2">₹300</span></div>
+
+                  </div>
+                </div>
+                <div className="itemarea">
+                  <div className="productAdd">
+                    <div className="addProduct">Add <i className="fa fa-plus"></i> </div>
+                  </div>
+                </div>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+    </div>
   );
 }

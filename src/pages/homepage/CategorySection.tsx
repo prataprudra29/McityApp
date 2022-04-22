@@ -1,85 +1,71 @@
-import { Box, Typography } from "@mui/material";
-import React from "react";
-
+import React, { useState } from "react";
 const CategorySection = () => {
+
+  let myState = {
+    category: false
+  }
+  const [state, setState] = useState(myState);
+
   const dummyArray = [
-    "Apex (1)",
-    "Dekau (2)",
-    "Heater (3)",
-    "Cello Tape with Band (4)",
-    "Soap (2)",
-    "Plate (13)",
-    "Cup (2)",
-    "Food (1)",
-    "Bisleri (10)",
-    "Apex (1)",
-    "Dekau (2)",
-    "Heater (3)",
-    "Cello (4)",
-    "Soap (2)",
-    "Plate (13)",
-    "Cup (2)",
-    "Food (1)",
-    "Bisleri (10)",
-    "Apex (1)",
-    "Dekau (2)",
-    "Heater (3)",
-    "Cello (4)",
-    "Soap (2)",
-    "Plate (13)",
-    "Cup (2)",
-    "Food (1)",
-    "Bisleri (10)",
+    { name: 'Apex', count: '2' },
+    { name: 'Dekau', count: '2' },
+    { name: 'Heater', count: '2' },
+    { name: 'Cello Tape with Band', count: '2' },
+    { name: 'Soap', count: '2' },
+    { name: 'Cup', count: '2' },
+    { name: 'Food', count: '2' },
+    { name: 'Apex', count: '2' },
+    { name: 'Dekau', count: '2' },
+    { name: 'Heater', count: '2' },
+    { name: 'Cello Tape with Band', count: '2' },
+    { name: 'Soap', count: '2' },
+    { name: 'Cup', count: '2' },
+    { name: 'Food', count: '2' },
+    { name: 'Apex', count: '2' },
+    { name: 'Dekau', count: '2' },
+    { name: 'Heater', count: '2' },
+    { name: 'Cello Tape with Band', count: '2' },
+    { name: 'Soap', count: '2' },
+    { name: 'Cup', count: '2' },
+    { name: 'Food', count: '2' },
+    { name: 'Apex', count: '2' },
+    { name: 'Dekau', count: '2' },
+    { name: 'Heater', count: '2' },
+    { name: 'Cello Tape with Band', count: '2' },
+    { name: 'Soap', count: '2' },
+    { name: 'Cup', count: '2' },
+    { name: 'Food', count: '2' },
   ];
+
+  const openCategory = () => {
+    setState({ category: !state.category });
+  }
+
   return (
-    <Box
-      sx={{
-        flexGrow: 1,
-        alignItems: "flex-start",
-        justifyContent: "center",
-        display: "flex",
-        flexDirection: "column",
-        borderRight: "1px solid #F0F0F0",
-        width: "30%",
-        fontFamily: "sans-serif",
-        marginTop: 5,
-        overflow: "auto",
-        maxHeight: 1000,
-      }}
-    >
-      {dummyArray.map((itr) => (
-        <Box
-          sx={{
-            display: "flex",
-            flexDirection: "row",
-            justifyContent: "center",
-          }}
-        >
-          <Box
-            sx={{
-              flexGrow: 1,
-              width: 150,
-              display: "flex",
-              flexDirection: "column",
-              justifyContent: "center",
-            }}
-          >
-            {" "}
-          </Box>
-          <Typography
-            style={{
-              fontSize: 16,
-              fontWeight: 400,
-              padding: "4px",
-              marginTop: 5,
-              alignItems: "center",
-            }}
-          >
-            {itr}
-          </Typography>
-        </Box>
-      ))}
-    </Box>
+    <>
+      <div className={`leftsidebar ${state.category ? 'showCategory' : null}`}>
+        <ul className="m-0 p-0 w-100">
+          {
+            dummyArray.map(res => (
+              <li className="categoryName" key={res.name}>{res.name} <span className="countName">{res.count}</span></li>
+            ))
+          }
+        </ul>
+        <div className="w-100 viewAllCategorios">
+          View All Categories <i className="fa fa-arrow-right"></i>
+        </div>
+      </div>
+
+      {!state.category && 
+        <div className="categoryButton" onClick={openCategory}>
+          <div className="catButton">
+            <i className="fa fa-th-large"></i>
+          </div>
+          {/* <span className="categoriesText">Categories</span> */}
+        </div>
+      }
+      <div className={`overlayleft ${state.category ? 'overlayShow' : null}`} onClick={openCategory}></div>
+    </>
   );
 };
 

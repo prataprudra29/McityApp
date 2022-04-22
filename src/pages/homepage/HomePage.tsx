@@ -5,15 +5,12 @@ import ProductSection from "./ProductSection";
 
 const HomePage = () => {
   return (
-    <div
-      style={{
-        display: "flex",
-        flexDirection: "row",
-      }}
-    >
-      <CategorySection />
-      <ProductSection />
-      <CartSection />
+    <div className="w-100 float-left">
+      <div className="container">
+        <CategorySection />
+        <ProductSection />
+        <CartSection />
+      </div>
     </div>
   );
 };
