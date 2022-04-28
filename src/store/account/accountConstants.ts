@@ -14,7 +14,7 @@ interface actionPending {
 
 interface actionSuccess {
   type: ActionType.STORE_DATA_SUCCESS;
-  payload: string;
+  payload: [];
 }
 
 interface actionFail {

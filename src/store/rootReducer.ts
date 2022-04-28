@@ -20,3 +20,5 @@ const store = createStore(
 );
 
 export default store;
+//This RootState is required to use useSelector later on
+export type RootState = ReturnType<typeof reducer>;

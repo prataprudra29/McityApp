@@ -18,9 +18,10 @@ export const getStoreData = () => {
         {}
       ).then((res) => {
         // Sending User Data to Local State Management
+        console.log("ress", res?.data?.data);
         dispatch({
           type: ActionType.STORE_DATA_SUCCESS,
-          payload: res.data,
+          payload: res?.data?.data,
         });
       });
     } catch (err) {

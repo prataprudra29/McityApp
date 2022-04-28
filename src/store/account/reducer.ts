@@ -1,10 +1,6 @@
 import { Action, ActionType } from "./accountConstants";
 
-interface StoreData {
-  id: number;
-  name: string;
-  email: string;
-}
+interface StoreData {}
 
 interface State {
   storeData?: StoreData[];
@@ -26,7 +22,7 @@ export const storeDataReducer = (
     case ActionType.STORE_DATA_REQUEST:
       return { loading: true };
     case ActionType.STORE_DATA_SUCCESS:
-      return { loading: false, storeData: [] };
+      return { loading: false, storeData: action.payload };
     case ActionType.STORE_DATA_FAILIURE:
       return { loading: false, error: "error" };
 
