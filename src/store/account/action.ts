@@ -11,14 +11,9 @@ export const getStoreData = () => {
     });
 
     try {
-      APIClient.request(
-        APIMethod.POST,
-        APIUrl.SERVER_BASE_URL + "shops/details?id=2",
-        "",
-        {}
-      ).then((res) => {
+      APIClient.request(APIMethod.POST, APIUrl.SERVER_BASE_URL + "shops/details?id=2", "", {}).then((res: any) => {
         // Sending User Data to Local State Management
-        console.log("ress", res?.data?.data);
+        // console.log("ress", res?.data?.data);
         dispatch({
           type: ActionType.STORE_DATA_SUCCESS,
           payload: res?.data?.data,
@@ -32,3 +27,13 @@ export const getStoreData = () => {
     }
   };
 };
+
+export const sideBarClickData = (data: any) => {
+  return async (dispatch: Dispatch<Action>) => {
+    dispatch({
+      type: ActionType.STORE_DATA_REQUEST,
+      payload: data
+    });
+  };
+};
+

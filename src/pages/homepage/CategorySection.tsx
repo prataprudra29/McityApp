@@ -1,52 +1,37 @@
 import React, { useState } from "react";
-const CategorySection = () => {
+import { useDispatch } from "react-redux";
+import { useTypedSelector } from "../../store/typeSelector";
+import { getStoreData, sideBarClickData } from "../../store/account/action";
 
-  let myState = {
-    category: false
+const CategorySection = () => {
+  let myState: any = {
+    category: false,
+    categories: []
   }
   const [state, setState] = useState(myState);
+  const dispatch = useDispatch();
+  const data: any = useTypedSelector((state) => state.storeReducer);
+  console.log(data);
 
-  const dummyArray = [
-    { name: 'Apex', count: '2' },
-    { name: 'Dekau', count: '2' },
-    { name: 'Heater', count: '2' },
-    { name: 'Cello Tape with Band', count: '2' },
-    { name: 'Soap', count: '2' },
-    { name: 'Cup', count: '2' },
-    { name: 'Food', count: '2' },
-    { name: 'Apex', count: '2' },
-    { name: 'Dekau', count: '2' },
-    { name: 'Heater', count: '2' },
-    { name: 'Cello Tape with Band', count: '2' },
-    { name: 'Soap', count: '2' },
-    { name: 'Cup', count: '2' },
-    { name: 'Food', count: '2' },
-    { name: 'Apex', count: '2' },
-    { name: 'Dekau', count: '2' },
-    { name: 'Heater', count: '2' },
-    { name: 'Cello Tape with Band', count: '2' },
-    { name: 'Soap', count: '2' },
-    { name: 'Cup', count: '2' },
-    { name: 'Food', count: '2' },
-    { name: 'Apex', count: '2' },
-    { name: 'Dekau', count: '2' },
-    { name: 'Heater', count: '2' },
-    { name: 'Cello Tape with Band', count: '2' },
-    { name: 'Soap', count: '2' },
-    { name: 'Cup', count: '2' },
-    { name: 'Food', count: '2' },
-  ];
-
-  const openCategory = () => {
+  const openCategory = (data: any) => {
     setState({ category: !state.category });
+    dispatch<any>(sideBarClickData(data));
   }
+
+  React.useEffect(() => {
+    dispatch<any>(getStoreData());
+    if (data) {
+      setState({ ...state, categories: data.storeData.categories })
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <>
       <div className={`leftsidebar ${state.category ? 'showCategory' : null}`}>
         <ul className="m-0 p-0 w-100">
           {
-            dummyArray.map(res => (
+            state.categories.map((res: any) => (
               <li className="categoryName" key={res.name}>{res.name} <span className="countName">{res.count}</span></li>
             ))
           }
@@ -56,12 +41,11 @@ const CategorySection = () => {
         </div>
       </div>
 
-      {!state.category && 
+      {!state.category &&
         <div className="categoryButton" onClick={openCategory}>
           <div className="catButton">
             <i className="fa fa-th-large"></i>
           </div>
-          {/* <span className="categoriesText">Categories</span> */}
         </div>
       }
       <div className={`overlayleft ${state.category ? 'overlayShow' : null}`} onClick={openCategory}></div>

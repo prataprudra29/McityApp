@@ -1,6 +1,6 @@
 import { Action, ActionType } from "./accountConstants";
 
-interface StoreData {}
+interface StoreData { }
 
 interface State {
   storeData?: StoreData[];
@@ -8,7 +8,7 @@ interface State {
   error?: string | null;
 }
 
-const initialState = {
+const initialState: any = {
   storeData: [],
   loading: false,
   error: null,
