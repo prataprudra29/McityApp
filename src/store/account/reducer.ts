@@ -1,6 +1,9 @@
 import { Action, ActionType } from "./accountConstants";
 
-interface StoreData { }
+interface StoreData {
+  products: [];
+  categories: [];
+}
 
 interface State {
   storeData?: StoreData[];

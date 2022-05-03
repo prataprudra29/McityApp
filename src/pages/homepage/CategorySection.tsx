@@ -27,7 +27,7 @@ const CategorySection = () => {
       setState({ ...state, categories: data?.storeData?.categories });
     }
   }, [data]);
-  console.log("state", state);
+  console.log("state", categoryData);
 
   return (
     <>
