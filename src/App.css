@@ -6,6 +6,9 @@ body {
 .fz20 {
   font-size: 20px;
 }
+.fz24 {
+  font-size: 24px;
+}
 
 .fz18 {
   font-size: 18px;
@@ -181,9 +184,10 @@ body {
 }
 
 .productImg img {
-  object-fit: cover;
+  object-fit: contain;
   float: left;
   height: 100%;
+  width: 100%;
 }
 
 .offerArea {
@@ -307,10 +311,72 @@ body {
   display: block !important;
 }
 
+.productImg.full {
+  width: 100%;
+  height: auto !important;
+}
+.productImg.full .offerArea {
+  top: 15px;
+  bottom: auto;
+  right: 15px;
+}
 
+.addCartBox {
+  padding: 10px;
+  margin-left: 20px;
+}
+.productAdd.addpro {
+  width: 190px;
+  height: 48px;
+}
 
+.itemarea.halfper {
+  width: 100%;
+}
 
+.mainD {
+  overflow: auto;
+  height: 100vh;
+  padding:20px 0px 80px;
+}
 
+.itemarea.halfper .countIcon {
+  padding: 15px 30px;
+}
+.itemarea.halfper .count{width:40px}
+
+.itemarea.halfper .countProduct{ height: 46px;}
+button.gotBag {
+  background: #146eb4;
+  color: #fff;
+  border: none;
+  width: 190px;
+  height: 48px;
+  border-radius: 6px;
+  margin-left: 20px;
+}
+.mt-10{margin-top: 50px;}
+
+.figureset img {
+  width: 100%;
+}
+.figureset {
+  overflow: hidden;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+  position: relative;
+}
+.productPass {
+  margin: 5px 0px;
+}
+.proddetails {
+  padding: 20px 0px;
+}
+.figureset .offerArea {
+  top: 10px;
+  bottom: auto;
+  right: 10px;
+}
 
 
 @media screen and (max-width:1200px) {
@@ -366,6 +432,6 @@ body {
   }
 
 
-
+ .list{padding-bottom: 82px !important;}
  
 }

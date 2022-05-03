@@ -6,14 +6,10 @@ import { Action, ActionType } from "./accountConstants";
 
 export const getStoreData = () => {
   return async (dispatch: Dispatch<Action>) => {
-    dispatch({
-      type: ActionType.STORE_DATA_REQUEST,
-    });
-
+    dispatch({ type: ActionType.STORE_DATA_REQUEST });
     try {
       APIClient.request(APIMethod.POST, APIUrl.SERVER_BASE_URL + "shops/details?id=2", "", {}).then((res: any) => {
-        // Sending User Data to Local State Management
-        // console.log("ress", res?.data?.data);
+        // Sending User Data to Local State Management 
         dispatch({
           type: ActionType.STORE_DATA_SUCCESS,
           payload: res?.data?.data,
@@ -29,9 +25,9 @@ export const getStoreData = () => {
 };
 
 export const sideBarClickData = (data: any) => {
-  return async (dispatch: Dispatch<Action>) => {
+  return (dispatch: Dispatch<Action>) => {
     dispatch({
-      type: ActionType.STORE_DATA_REQUEST,
+      type: ActionType.GET_CATEGORY_DATA,
       payload: data
     });
   };
